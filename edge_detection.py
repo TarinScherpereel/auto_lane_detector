@@ -8,6 +8,7 @@ cap = cv2.VideoCapture(0) #connect to webcam
 #edge detection
 _, im = cap.read()
 cv2.imshow('test',im)
+cv2.waitKey(0)
 edges = cv2.Canny(img,100,200) #Canny Method Algorithm
 
 plt.subplot(121),plt.imshow(img,cmap = 'gray')
