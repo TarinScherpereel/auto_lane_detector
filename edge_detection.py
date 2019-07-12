@@ -1,7 +1,9 @@
 import cv2
 import numpy as np
+from matplotlib import pyplot as plt
 
 cap = cv2.VideoCapture(0) #connect to webcam
+
 
 #edge detection
 
