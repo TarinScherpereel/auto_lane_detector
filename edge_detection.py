@@ -1,22 +1,18 @@
 import cv2
 
-cv2.namedWindow("preview")
-vc = cv2.VideoCapture(0)
+capture = cv2.VideoCapture(0)
 
+while(True):
 
+    ret, frame = capture.read()
 
-if vc.isOpened(): # try to get the first frame
-    rval, frame = vc.read()
-else:
-    rval = False
+    grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-while rval:
-    gray = cv2.cvtColor(frame, cv2.COLOR_RGB2GRAY)
-    cv2.imshow("preview", frame)
-    rval, frame = vc.read()
-    key = cv2.waitKey(20)
-    if key == 27: # exit on ESC
+    cv2.imshow('video gray', grayFrame)
+    cv2.imshow('video original', frame)
+
+    if cv2.waitKey(1) == 27:
         break
 
-cv2.destroyWindow("preview")
-vc.release()
+capture.release()
+cv2.destroyAllWindows()
