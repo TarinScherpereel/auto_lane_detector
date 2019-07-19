@@ -9,7 +9,7 @@ while(True):
     grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     #blur image
-    blurred_frame = cv2.GaussianBlur(frame, (50,50), 0)
+    blurred_frame = cv2.GaussianBlur(frame, (30,30), 0)
 
     cv2.imshow('video gray', grayFrame)
     cv2.imshow('video blurred', blurred_frame)
