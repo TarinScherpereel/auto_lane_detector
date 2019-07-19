@@ -11,9 +11,14 @@ while(True):
     #blur image
     blurred_frame = cv2.GaussianBlur(frame, (21,21), 0)
 
+    #canny
+    #edge=cs2.Canny(frame, (25,75))
+    canny = cv2.Canny(blurred_frame, 30, 100)
+
     cv2.imshow('video gray', grayFrame)
     cv2.imshow('video blurred', blurred_frame)
     cv2.imshow('video original', frame)
+    cv2.imshow('video original', canny)
 
     if cv2.waitKey(1) == 27:
         break
