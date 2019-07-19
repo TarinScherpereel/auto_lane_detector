@@ -31,6 +31,7 @@ while(True):
         print('Found no lines')
     #cv2.imshow('video gray', grayFrame)
     #cv2.imshow('video blurred', blurred_frame)
+    window = cv2.namedWindow('video canny',CV_WINDOW_AUTOSIZE)
     cv2.imshow('video canny', canny)
     cv2.imshow('video original', frame)
     #new
