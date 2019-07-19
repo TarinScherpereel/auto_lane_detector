@@ -20,7 +20,7 @@ while(True):
     edges = cv2.Canny(canny, 50, 200)
 
     #new
-    lines = cv2.HoughLinesP(edges, 1, np.pi/180, 255, minLineLength=10, maxLineGap=250)
+    lines = cv2.HoughLinesP(edges, 1, np.pi/180, threshold=255, minLineLength=10, maxLineGap=250)
 
     #new
     for line in lines:
