@@ -12,7 +12,7 @@ while(True):
     grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     #blur video
-    #blurred_frame = cv2.GaussianBlur(grayFrame, (21,21), 0)
+    blurred_frame = cv2.GaussianBlur(grayFrame, (21,21), 0)
 
     #canny
     #edge=cs2.Canny(frame, (25,75))
@@ -33,8 +33,8 @@ while(True):
             #cv2.line(blank_frame, (x1, y1), (x2, y2), (255, 0, 0), 3)
     #except TypeError:
         #print('Found no lines')
-    cv2.imshow('video gray', grayFrame)
-    #cv2.imshow('video blurred', blurred_frame)
+    #cv2.imshow('video gray', grayFrame)
+    cv2.imshow('video blurred', blurred_frame)
     #window = cv2.namedWindow('MainWindow',cv2.WND_PROP_FULLSCREEN)
     #cv2.setWindowProperty('MainWindow',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
    # cv2.imshow('video canny', canny)
