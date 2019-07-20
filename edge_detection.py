@@ -7,22 +7,26 @@ while(True):
 
     ret, frame = capture.read()
     blank_frame = np.zeros_like(frame)
+
+    #gray video
     grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    #blur image
+    #blur video
     blurred_frame = cv2.GaussianBlur(grayFrame, (21,21), 0)
 
     #canny
     #edge=cs2.Canny(frame, (25,75))
+
+    #canny method
     canny = cv2.Canny(blurred_frame, 30, 100)
 
-    #new
+    #select edges for hough transform
     edges = cv2.Canny(canny, 50, 200)
 
-    #new
+    #select lines through Hough Transform
     lines = cv2.HoughLinesP(edges, 1, np.pi/180, 100)
 
-    #new
+    #Part of hough transform
     try:
         for line in lines:
             x1, y1, x2, y2 = line[0]
