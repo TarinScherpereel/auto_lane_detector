@@ -15,7 +15,7 @@ while(True):
     blurred_frame = cv2.GaussianBlur(grayFrame, (21,21), 0)
 
     #canny
-    edge=cs2.Canny(frame, (25,75))
+    #edge=cs2.Canny(frame, (25,75))
 
     #canny method
     canny = cv2.Canny(blurred_frame, 30, 100)
