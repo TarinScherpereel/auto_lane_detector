@@ -21,7 +21,7 @@ while(True):
     #canny = cv2.Canny(blurred_frame, 30, 100)
 
     #select edges for hough transform
-    #edges = cv2.Canny(canny, 50, 200)
+    edges = cv2.Canny(canny, 50, 200)
 
     #select lines through Hough Transform
     lines = cv2.HoughLinesP(edges, 1, np.pi/180, 100)
