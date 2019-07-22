@@ -13,25 +13,13 @@ def forward():
     #Moving forward motor a
     GPIO.output(P_MOTA1, GPIO.LOW)
     GPIO.output(P_MOTA2, GPIO.HIGH)
+    GPIO.output(P_MOTA2, GPIO.HIGH)
+    GPIO.output(P_MOTA1, GPIO.LOW)
+    #moving forward motor b
     GPIO.output(P_MOTA3, GPIO.HIGH)
     GPIO.output(P_MOTA4, GPIO.LOW)
-    #moving forward motor b
-    GPIO.output(P_MOTA1, GPIO.HIGH)
-    GPIO.output(P_MOTA2, GPIO.LOW)
-    GPIO.output(P_MOTA3, GPIO.LOW)
-    GPIO.output(P_MOTA4, GPIO.HIGH)
-
-
-def backward():
-    GPIO.output(P_MOTA1, GPIO.LOW)
-    GPIO.output(P_MOTA2, GPIO.HIGH)
-
-
-def stop():
-    GPIO.output(P_MOTA1, GPIO.LOW)
-    GPIO.output(P_MOTA2, GPIO.LOW)
-    GPIO.output(P_MOTA3, GPIO.LOW)
     GPIO.output(P_MOTA4, GPIO.LOW)
+    GPIO.output(P_MOTA3, GPIO.HIGH)
 
 def setup():
     GPIO.setmode(GPIO.BCM)
