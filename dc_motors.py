@@ -27,7 +27,7 @@ def stop():
     GPIO.output(P_MOTA4, GPIO.LOW)
 
 def setup():
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(P_MOTA1, GPIO.OUT)
     GPIO.setup(P_MOTA2, GPIO.OUT)
     GPIO.setup(P_MOTA3, GPIO.OUT)
