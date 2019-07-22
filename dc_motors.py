@@ -14,6 +14,10 @@ def forward():
     GPIO.output(P_MOTA2, GPIO.LOW)
     GPIO.output(P_MOTA3, GPIO.LOW)
     GPIO.output(P_MOTA4, GPIO.HIGH)
+    GPIO.output(P_MOTA1, GPIO.LOW)
+    GPIO.output(P_MOTA2, GPIO.HIGH)
+    GPIO.output(P_MOTA3, GPIO.HIGH)
+    GPIO.output(P_MOTA4, GPIO.LOW)
 
 def backward():
     GPIO.output(P_MOTA1, GPIO.LOW)
