@@ -6,7 +6,7 @@ import time import sleep
 
 P_MOTA1 = 16
 P_MOTA2 = 20
-P_MOTA3 = 12
+P_MOTA3 = 6
 P_MOTA4 = 13
 
 def forward():
