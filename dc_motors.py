@@ -33,7 +33,6 @@ setup()
 while True:
     print ("forward")
     forward()
-    print ("backward")
-    backward()
-    print ("stop")
-    stop()
+
+
+    
