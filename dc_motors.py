@@ -11,10 +11,10 @@ P_MOTA4 = 13
 
 def forward():
     #Moving forward motor a
-    GPIO.output(P_MOTA1, GPIO.LOW)
-    GPIO.output(P_MOTA2, GPIO.HIGH)
-    GPIO.output(P_MOTA2, GPIO.HIGH)
-    GPIO.output(P_MOTA1, GPIO.LOW)
+    GPIO.output(P_MOTA3, GPIO.LOW)
+    GPIO.output(P_MOTA4, GPIO.HIGH)
+    GPIO.output(P_MOTA4, GPIO.HIGH)
+    GPIO.output(P_MOTA3, GPIO.LOW)
     #moving forward motor b
     GPIO.output(P_MOTA3, GPIO.HIGH)
     GPIO.output(P_MOTA4, GPIO.LOW)
@@ -33,6 +33,3 @@ setup()
 while True:
     print ("forward")
     forward()
-
-
-    
