@@ -10,14 +10,17 @@ P_MOTA3 = 6
 P_MOTA4 = 13
 
 def forward():
-    GPIO.output(P_MOTA1, GPIO.HIGH)
-    GPIO.output(P_MOTA2, GPIO.LOW)
-    GPIO.output(P_MOTA3, GPIO.LOW)
-    GPIO.output(P_MOTA4, GPIO.HIGH)
+    #Moving forward motor a
     GPIO.output(P_MOTA1, GPIO.LOW)
     GPIO.output(P_MOTA2, GPIO.HIGH)
     GPIO.output(P_MOTA3, GPIO.HIGH)
     GPIO.output(P_MOTA4, GPIO.LOW)
+    #moving forward motor b
+    GPIO.output(P_MOTA1, GPIO.HIGH)
+    GPIO.output(P_MOTA2, GPIO.LOW)
+    GPIO.output(P_MOTA3, GPIO.LOW)
+    GPIO.output(P_MOTA4, GPIO.HIGH)
+
 
 def backward():
     GPIO.output(P_MOTA1, GPIO.LOW)
