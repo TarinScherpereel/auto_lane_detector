@@ -2,7 +2,7 @@
 # Motor forward & backward
 
 import RPi.GPIO as GPIO
-import time import sleep
+from time import sleep
 
 P_MOTA1 = 16
 P_MOTA2 = 20
