@@ -42,4 +42,3 @@ while True:
     backward()
     print ("stop")
     stop()
-    time.sleep(2)
