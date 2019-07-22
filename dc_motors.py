@@ -40,7 +40,6 @@ while True:
     forward()
     print ("backward")
     backward()
-    time.sleep(2)
     print ("stop")
     stop()
     time.sleep(2)
