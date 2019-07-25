@@ -48,4 +48,4 @@ while(True):
         break
 
 capture.release()
-cv2.destroyAllWindows()
+cv2.destroyAllWindows() 
