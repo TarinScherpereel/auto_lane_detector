@@ -2,34 +2,69 @@
 # Motor forward & backward
 
 import RPi.GPIO as GPIO
-from time import sleep
+import time
 
-P_MOTA1 = 16
-P_MOTA2 = 20
-P_MOTA3 = 6
-P_MOTA4 = 13
+Motor1 = 16
+Motor2 = 20
+Motor3 = 6
+Motor4 = 13
+#Setup
+def setup():
+    GPIO.setmode(GPIO.BCM)#This might be BCM instead of BOARD
+    GPIO.setup(Motor1, GPIO.OUT)
+    GPIO.setup(Motor2, GPIO.OUT)
+    GPIO.setup(Motor3, GPIO.OUT)
+    GPIO.setup(Motor4, GPIO.OUT)
 
 def forward():
-    #Moving forward motor a
-    GPIO.output(P_MOTA3, GPIO.LOW)
-    GPIO.output(P_MOTA4, GPIO.HIGH)
-    GPIO.output(P_MOTA4, GPIO.HIGH)
-    GPIO.output(P_MOTA3, GPIO.LOW)
-    #moving forward motor b
-    GPIO.output(P_MOTA3, GPIO.HIGH)
-    GPIO.output(P_MOTA4, GPIO.LOW)
-    GPIO.output(P_MOTA4, GPIO.LOW)
-    GPIO.output(P_MOTA3, GPIO.HIGH)
+#Moving MotorA Forward
+    GPIO.output(Motor1, GPIO.LOW)
+    GPIO.output(Motor2, GPIO.HIGH)
 
-def setup():
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(P_MOTA1, GPIO.OUT)
-    GPIO.setup(P_MOTA2, GPIO.OUT)
-    GPIO.setup(P_MOTA3, GPIO.OUT)
-    GPIO.setup(P_MOTA4, GPIO.OUT)
+    GPIO.output(Motor1, GPIO.HIGH)
+    GPIO.output(Motor2, GPIO.LOW)
+
+#Moving MotorB Forward
+    GPIO.output(Motor3, GPIO.HIGH)
+    GPIO.output(Motor4, GPIO.LOW)
+
+    GPIO.output(Motor3, GPIO.LOW)
+    GPIO.output(Motor4, GPIO.HIGH)
+
+
+def backward():
+#Moving MotorA Backwards
+    GPIO.output(Motor1, GPIO.HIGH)
+    GPIO.output(Motor2, GPIO.LOW)
+
+    GPIO.output(Motor1, GPIO.LOW)
+    GPIO.output(Motor2, GPIO.HIGH)
+
+#Moving MotorB Backwards
+    GPIO.output(Motor3, GPIO.LOW)
+    GPIO.output(Motor4, GPIO.HIGH)
+
+    GPIO.output(Motor3, GPIO.HIGH)
+    GPIO.output(Motor4, GPIO.LOW)
+
+#Stop
+def stop():
+    GPIO.output(Motor1, GPIO.LOW)
+    GPIO.output(Motor2, GPIO.LOW)
+    GPIO.output(Motor3, GPIO.LOW)
+    GPIO.output(Motor4, GPIO.LOW)
+
+
 
 print ("starting")
 setup()
 while True:
     print ("forward")
-    forward() 
+    forward()
+    time.sleep(2)
+    print ("backward")
+    backward()
+    time.sleep(2)
+    print ("stop")
+    stop()
+    time.sleep(2)
