@@ -1,23 +1,21 @@
-import cv2
-import numpy as np
-import logging
-import math
+import cv2 #used for webcam, gives vehicle eyes
+import numpy as np #set of datatypes used to construct arrays
+import logging #track events that happen when software runs
+import math #used for mathmatecal Functions
 import datetime
 import sys
 
 _SHOW_IMAGE = False
 
-
-class HandCodedLaneFollower(object):
+class LaneFollower(object): #class keeps related things together (groups objects)
 
     def __init__(self, car=None):
-        logging.info('Creating a HandCodedLaneFollower...')
+        logging.info('Create a LaneFollower')
         self.car = car
-        self.curr_steering_angle = 90
+        self.curr_steering_angle = 90 #90 degrees makes the vehicle steer forward
 
     def follow_lane(self, frame):
-        # Main entry point of the lane follower
-        show_image("orig", frame)
+        show_image("Original", frame)
 
         lane_lines, frame = detect_lane(frame)
         final_frame = self.steer(frame, lane_lines)
