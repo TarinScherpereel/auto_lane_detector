@@ -8,77 +8,76 @@ import sys
 _SHOW_IMAGE = False
 
 class LaneFollower(object): #class keeps related things together (groups objects)
+###################################
+##def defines functions
+###################################
 
-    def __init__(self, car=None):
-        logging.info('Create a LaneFollower')
-        self.car = car
+    def __init__(self, car=None): #self accesses the attributes of a class, init is constructor in object concepts and allows the class to initilize
+        logging.info('Create a LaneFollower') #track lanefollower events that happen
+        self.car = car #self is for an object reference to car
         self.curr_steering_angle = 90 #90 degrees makes the vehicle steer forward
 
-    def follow_lane(self, frame):
-        show_image("Original", frame)
+    def follow_lane(self, frame): #accesses class
+        show_image("Original", frame) #show the original image on the monitor
 
         lane_lines, frame = detect_lane(frame)
-        final_frame = self.steer(frame, lane_lines)
+        final_frame = self.steer(frame, lane_lines) #first argument of class is defined as self
 
-        return final_frame
+        return final_frame #"hands" results over
 
     def steer(self, frame, lane_lines):
-        logging.debug('steering...')
-        if len(lane_lines) == 0:
-            logging.error('No lane lines detected, nothing to do.')
+        logging.debug('steering...') #track the events happeneing for steering
+        if len(lane_lines) == 0: #len returns the number of items in an object or string
+            logging.error('No lane lines detected.') #if no lanes are detected, this will be displayed in the terminal
             return frame
 
-        new_steering_angle = compute_steering_angle(frame, lane_lines)
-        self.curr_steering_angle = stabilize_steering_angle(self.curr_steering_angle, new_steering_angle, len(lane_lines))
+        new_steering_angle = compute_steering_angle(frame, lane_lines) #for when the rover is not going to go straight
+        self.curr_steering_angle = stabilize_steering_angle(self.curr_steering_angle, new_steering_angle, len(lane_lines)) #curr breaks down and evaluates functions
 
         if self.car is not None:
-            self.car.front_wheels.turn(self.curr_steering_angle)
+            self.car.front_wheels.turn(self.curr_steering_angle) #the front wheels will turn when it is not 90 degrees
         curr_heading_image = display_heading_line(frame, self.curr_steering_angle)
-        show_image("heading", curr_heading_image)
+        show_image("heading", curr_heading_image) #show the heading image on the monitor
 
         return curr_heading_image
 
-
-############################
-# Frame processing steps
-############################
+#######################################
+########## Frame processing steps######
+#######################################
 def detect_lane(frame):
-    logging.debug('detecting lane lines...')
+    logging.debug('detecting lane lines...') #display to terminal that lane lines are being detected
 
-    edges = detect_edges(frame)
-    show_image('edges', edges)
+    edges = detect_edges(frame) #look for edges of the track
+    show_image('edges', edges) #display video of the detected edges
 
-    cropped_edges = region_of_interest(edges)
-    show_image('edges cropped', cropped_edges)
+    cropped_edges = region_of_interest(edges) #apply region of interest to live video footage
+    show_image('region of interest', cropped_edges) #display video of the region of interest completed
 
     line_segments = detect_line_segments(cropped_edges)
     line_segment_image = display_lines(frame, line_segments)
-    show_image("line segments", line_segment_image)
+    show_image("line segments", line_segment_image) #display video with detected line segments
 
     lane_lines = average_slope_intercept(frame, line_segments)
     lane_lines_image = display_lines(frame, lane_lines)
-    show_image("lane lines", lane_lines_image)
+    show_image("lane lines", lane_lines_image) #display video with the lane lines
 
     return lane_lines, lane_lines_image
 
 
 def detect_edges(frame):
-    # filter for blue lane lines
-    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    show_image("hsv", hsv)
-    lower_blue = np.array([30, 40, 0])
-    upper_blue = np.array([150, 255, 255])
-    mask = cv2.inRange(hsv, lower_blue, upper_blue)
-    show_image("blue mask", mask)
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV) #apply filter for blue lines
+    show_image("hsv", hsv) #hue-saturation-value
+    lower_blue = np.array([30, 40, 0]) #values needed to detect blue lines
+    upper_blue = np.array([150, 255, 255]) #values needed to detect blue lines
+    mask = cv2.inRange(hsv, lower_blue, upper_blue) #mask the blue lines
+    show_image("blue mask", mask) #display the video with masked blue lines to monitor
 
-    # detect edges
-    edges = cv2.Canny(mask, 200, 400)
+    edges = cv2.Canny(mask, 200, 400) #detect edges in black and white canny method
 
     return edges
 
 def detect_edges_old(frame):
-    # filter for blue lane lines
-    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV) #apply filter again for blue lines
     show_image("hsv", hsv)
     for i in range(16):
         lower_blue = np.array([30, 16 * i, 0])
@@ -86,15 +85,7 @@ def detect_edges_old(frame):
         mask = cv2.inRange(hsv, lower_blue, upper_blue)
         show_image("blue mask Sat=%s" % (16* i), mask)
 
-
-    #for i in range(16):
-        #lower_blue = np.array([16 * i, 40, 50])
-        #upper_blue = np.array([150, 255, 255])
-        #mask = cv2.inRange(hsv, lower_blue, upper_blue)
-       # show_image("blue mask hue=%s" % (16* i), mask)
-
-        # detect edges
-    edges = cv2.Canny(mask, 200, 400)
+    edges = cv2.Canny(mask, 200, 400) #detect edges again
 
     return edges
 
@@ -103,8 +94,7 @@ def region_of_interest(canny):
     height, width = canny.shape
     mask = np.zeros_like(canny)
 
-    # only focus bottom half of the screen
-
+    #only focus bottom half of the screen
     polygon = np.array([[
         (0, height * 1 / 2),
         (width, height * 1 / 2),
@@ -113,16 +103,15 @@ def region_of_interest(canny):
     ]], np.int32)
 
     cv2.fillPoly(mask, polygon, 255)
-    show_image("mask", mask)
+    show_image("mask", mask) #display masked video to monitor
     masked_image = cv2.bitwise_and(canny, mask)
     return masked_image
 
 
 def detect_line_segments(cropped_edges):
-    # tuning min_threshold, minLineLength, maxLineGap is a trial and error process by hand
-    rho = 1  # precision in pixel, i.e. 1 pixel
-    angle = np.pi / 180  # degree in radian, i.e. 1 degree
-    min_threshold = 10  # minimal of votes
+    rho = 1  # precision in pixel
+    angle = np.pi / 180  # degree in radians
+    min_threshold = 10  # minimum number of votes
     line_segments = cv2.HoughLinesP(cropped_edges, rho, angle, min_threshold, np.array([]), minLineLength=8,
                                     maxLineGap=4)
 
@@ -345,3 +334,11 @@ if __name__ == '__main__':
     #test_photo('/home/pi/DeepPiCar/driver/data/video/car_video_190427_110320_073.png')
     #test_photo(sys.argv[1])
     #test_video(sys.argv[1])
+
+
+
+
+
+
+
+    
