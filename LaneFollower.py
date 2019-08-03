@@ -288,7 +288,7 @@ def make_points(frame, line):
 # Test Functions
 ############################
 def test_photo(file):
-    land_follower = HandCodedLaneFollower()
+    land_follower = LaneFollower()
     frame = cv2.imread(file)
     combo_image = land_follower.follow_lane(frame)
     show_image('final', combo_image, True)
@@ -297,7 +297,7 @@ def test_photo(file):
 
 
 def test_video(video_file):
-    lane_follower = HandCodedLaneFollower()
+    lane_follower = LaneFollower()
     cap = cv2.VideoCapture(video_file + '.avi')
 
     # skip first second of video.
