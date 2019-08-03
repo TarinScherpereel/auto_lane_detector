@@ -3,6 +3,8 @@ import numpy as np
 
 cap = cv2.VideoCapture(0)
 
+def detect_edges(frame):
+    
 while(1):
 
     # Take each frame
