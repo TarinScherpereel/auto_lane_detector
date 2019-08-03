@@ -20,6 +20,11 @@ while(1):
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
 
     edges = cv2.Canny(mask, 200, 400)
+    minLineLength = 100
+    maxLineGap = 10
+    lines = cv2.HoughLinesP(edges,1,np.pi/180,100,minLineLength,maxLineGap)
+    for x1,y1,x2,y2 in lines[0]:
+        cv2.line(frame,(x1,y1),(x2,y2),(0,255,0),2)
 
 
     # Bitwise-AND mask and original image
@@ -28,8 +33,9 @@ while(1):
     cv2.imshow('frame',frame)
     cv2.imshow('mask',mask)
     cv2.imshow('res',res)
+    cv2.imshow('hough', frame)
     k = cv2.waitKey(5) & 0xFF
     if k == 27:
         break
-        
+
 cv2.destroyAllWindows
