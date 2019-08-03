@@ -7,7 +7,7 @@ def main():
     capture.set(4,480)
 
     while(capture.isOpened()):
-        _, image = capture.red()
+        _, image = capture.read()
         cv2.imshow("original", image)
 
         b_w_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
