@@ -4,7 +4,7 @@ import numpy as np
 cap = cv2.VideoCapture(0)
 
 
-def detect_edges(frame):
+while(1):
 
     # Take each frame
     _, frame = cap.read()
@@ -21,7 +21,6 @@ def detect_edges(frame):
 
     edges = cv2.Canny(mask, 200, 400)
 
-    return edges
 
     # Bitwise-AND mask and original image
     res = cv2.bitwise_and(frame,frame, mask= mask)
@@ -31,5 +30,6 @@ def detect_edges(frame):
     cv2.imshow('res',res)
     k = cv2.waitKey(5) & 0xFF
     if k == 27:
-
-    cv2.destroyAllWindows()
+        break
+        
+cv2.destroyAllWindows
