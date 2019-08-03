@@ -124,6 +124,7 @@ def detect_line_segments(cropped_edges):
 
 
 def average_slope_intercept(frame, line_segments):
+    ## triple quotes=shows up as a generated documentation
     """
     This function combines line segments into one or two lane lines
     If all line slopes are < 0: then we only have detected left lane
@@ -330,15 +331,7 @@ def test_video(video_file):
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO)
 
-    test_video('/home/pi/DeepPiCar/driver/data/tmp/video01')
+    test_video('car')
     #test_photo('/home/pi/DeepPiCar/driver/data/video/car_video_190427_110320_073.png')
     #test_photo(sys.argv[1])
     #test_video(sys.argv[1])
-
-
-
-
-
-
-
-    
