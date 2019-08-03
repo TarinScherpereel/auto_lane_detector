@@ -20,6 +20,8 @@ while(1):
 
     edges = cv2.Canny(mask, 200, 400)
 
+    return edges
+
     # Bitwise-AND mask and original image
     res = cv2.bitwise_and(frame,frame, mask= mask)
 
