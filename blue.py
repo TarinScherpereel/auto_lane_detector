@@ -3,8 +3,7 @@ import numpy as np
 
 cap = cv2.VideoCapture(0)
 
-def detect_edges(frame):
-    
+
 while(1):
 
     # Take each frame
@@ -22,7 +21,7 @@ while(1):
 
     edges = cv2.Canny(mask, 200, 400)
 
-    return edges
+        return edges
 
     # Bitwise-AND mask and original image
     res = cv2.bitwise_and(frame,frame, mask= mask)
