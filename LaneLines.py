@@ -1,5 +1,7 @@
 import cv2
 import numpy as np
+
+
 cap = cv2.VideoCapture(0)
 window = cv2.namedWindow('MainWindow',cv2.WND_PROP_FULLSCREEN)
 cv2.setWindowProperty('MainWindow',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
@@ -14,7 +16,7 @@ hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 #this will turn the blue white and everything else black
 #specify the blue range from 60-150 (first parameters of the lower and upper bound arrays)
 #use 40 -255 range for the saturation and value parameters
-lower_blue = np.array([60, 40, 40])
+'''lower_blue = np.array([60, 40, 40])
 upper_blue = np.array([150, 255, 255])
 mask = cv2.inRange(hsv, lower_blue, upper_blue)
 
@@ -71,7 +73,7 @@ def detect_line_segments(cropped_edges):
     line_segments = cv2.HoughLinesP(cropped_edges, rho, angle, min_threshold,
                                     np.array([]), minLineLength=8, maxLineGap=4)
 
-    return line_segments
+    return line_segments'''
 
 #combine 4 line segments into two lane lines
 #we do this by classifying the line segments into 2 groups
