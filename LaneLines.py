@@ -3,12 +3,13 @@ import numpy as np
 
 
 cap = cv2.VideoCapture(0)
+
 window = cv2.namedWindow('MainWindow',cv2.WND_PROP_FULLSCREEN)
 cv2.setWindowProperty('MainWindow',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
 #isolate all blue areas of video
 #turn BGR into HSV color space
 
-_, frame = cap.read()
+ret, frame = capture.read()
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
 
