@@ -1,6 +1,8 @@
 import cv2
 import numpy as np
 cap = cv2.VideoCapture(0)
+window = cv2.namedWindow('MainWindow',cv2.WND_PROP_FULLSCREEN)
+cv2.setWindowProperty('MainWindow',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
 #isolate all blue areas of video
 #turn BGR into HSV color space
 _, frame = cap.read()
@@ -23,11 +25,11 @@ edges = cv2.Canny(mask, 200, 400)
 def detect_edges(frame):
     # filter for blue lane lines
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    show_image("hsv", hsv)
+    cv2.imshow("MainWindow", hsv)
     lower_blue = np.array([60, 40, 40])
     upper_blue = np.array([150, 255, 255])
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
-    show_image("blue mask", mask)
+    cv2.imshow("MainWindow",mask)
 
     # detect edges
     edges = cv2.Canny(mask, 200, 400)
