@@ -10,6 +10,7 @@ cv2.setWindowProperty('MainWindow',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN
 #turn BGR into HSV color space
 
 ret, frame = cap.read()
+blank_frame = np.zeros_like(frame)
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
 
