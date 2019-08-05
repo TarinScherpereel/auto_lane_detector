@@ -5,6 +5,7 @@ window = cv2.namedWindow('MainWindow',cv2.WND_PROP_FULLSCREEN)
 cv2.setWindowProperty('MainWindow',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN)
 #isolate all blue areas of video
 #turn BGR into HSV color space
+cap.set(CAP_PROP_FOURCC, CV_FOURCC('M', 'J', 'P', 'G'))
 _, frame = cap.read()
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
