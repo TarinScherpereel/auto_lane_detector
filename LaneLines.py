@@ -1,5 +1,6 @@
 import cv2
-
+import numpy as np
+cap = cv2.VideoCapture(0)
 #isolate all blue areas of video
 #turn BGR into HSV color space
 _, frame = cap.read()
