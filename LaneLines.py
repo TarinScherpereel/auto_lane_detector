@@ -10,7 +10,6 @@ cv2.setWindowProperty('MainWindow',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN
 #turn BGR into HSV color space
 
 ret, frame = cap.read()
-blank_frame = np.zeros_like(frame)
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
 
@@ -18,7 +17,7 @@ hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 #this will turn the blue white and everything else black
 #specify the blue range from 60-150 (first parameters of the lower and upper bound arrays)
 #use 40 -255 range for the saturation and value parameters
-'''lower_blue = np.array([60, 40, 40])
+lower_blue = np.array([60, 40, 40])
 upper_blue = np.array([150, 255, 255])
 mask = cv2.inRange(hsv, lower_blue, upper_blue)
 
@@ -35,7 +34,7 @@ def detect_edges(frame):
     upper_blue = np.array([150, 255, 255])
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
     cv2.imshow("MainWindow",mask)
-
+ 
     # detect edges
     edges = cv2.Canny(mask, 200, 400)
 
