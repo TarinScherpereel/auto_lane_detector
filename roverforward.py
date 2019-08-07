@@ -25,7 +25,7 @@ def forward():
 #Moving MotorA Forward
     GPIO.output(Motor1, GPIO.HIGH)
     GPIO.output(Motor2, GPIO.LOW)
-    GPIO.output(EnableA, GPIO.LOW)
+    GPIO.output(EnableA, GPIO.HIGH)
 
     '''GPIO.output(Motor1, GPIO.HIGH)
     GPIO.output(Motor2, GPIO.LOW)
@@ -33,7 +33,7 @@ def forward():
 
     GPIO.output(Motor3, GPIO.HIGH)
     GPIO.output(Motor4, GPIO.LOW)
-    GPIO.output(EnableB, GPIO.LOW)
+    GPIO.output(EnableB, GPIO.HIGH)
 
     '''GPIO.output(Motor3, GPIO.HIGH)
     GPIO.output(Motor4, GPIO.LOW)
