@@ -16,9 +16,9 @@ while True:
     #Hough Stuff
     edges = cv2.Canny(blur,100,100)#canny shit
     lines = cv2.HoughLinesP(edges, 1, np.pi/180, 100)#lines
-    '''for line in lines:
+    for line in lines:
         x1, y1, x2, y2 = line[0]
-        cv2.line(frame,(x1,y1),(x2,y2),(0,255,0),2)'''
+        cv2.line(frame,(x1,y1),(x2,y2),(0,255,0),2)
 
     #HSV res needs to be down here for shits and giggles I guess
     res = cv2.bitwise_and(frame, frame, mask=mask)
