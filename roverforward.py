@@ -31,13 +31,13 @@ def forward():
     GPIO.output(Motor2, GPIO.LOW)
     GPIO.output(EnableA, GPIO.HIGH)
 
-    GPIO.output(Motor3, GPIO.HIGH)
+    '''GPIO.output(Motor3, GPIO.HIGH)
     GPIO.output(Motor4, GPIO.LOW)
     GPIO.output(EnableB, GPIO.HIGH)
 
     GPIO.output(Motor3, GPIO.LOW)
     GPIO.output(Motor4, GPIO.HIGH)
-    GPIO.output(EnableB, GPIO.HIGH)
+    GPIO.output(EnableB, GPIO.HIGH)'''
 
 
 
