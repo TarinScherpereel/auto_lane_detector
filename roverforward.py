@@ -32,11 +32,11 @@ def forward():
     #GPIO.output(Motor4, GPIO.HIGH)
 
 #Stop
-def stop():
+'''def stop():
     GPIO.output(Motor1, GPIO.LOW)
     GPIO.output(Motor2, GPIO.LOW)
     GPIO.output(Motor3, GPIO.LOW)
-    GPIO.output(Motor4, GPIO.LOW)
+    GPIO.output(Motor4, GPIO.LOW)'''
 
 
 
