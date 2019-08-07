@@ -39,7 +39,7 @@ def forward():
     GPIO.output(Motor4, GPIO.HIGH)
     GPIO.output(EnableB, GPIO.HIGH)
 
-    '''GPIO.output(Motor3, GPIO.HIGH)
+    '''GPIO.output(Motor3, GPIO.HIGH
     GPIO.output(Motor4, GPIO.LOW)
     GPIO.output(EnableB, GPIO.HIGH)'''
 
@@ -61,7 +61,7 @@ setup()
 while True:
     print ("reverse")
     forward()
-    #time.sleep(2)
+    time.sleep(6)
     print ("stop")
     stop()
-    #time.sleep(2)
+    time.sleep(6)
