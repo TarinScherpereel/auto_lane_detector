@@ -27,8 +27,8 @@ while True:
 ########################################################################################
 
     #cv2.imshow('orignal with rectangle',frame)#showing normal frame
-    cv2.imshow('Gaussian Blur', blur)#blur
-    #cv2.imshow('Edges', edges)#edges
+    #cv2.imshow('Gaussian Blur', blur)#blur
+    cv2.imshow('Edges', edges)#edges
     #cv2.imshow('hsv', hsv)#hsv
     #cv2.imshow('mask', mask)#masking
     #cv2.imshow('result', res)#views result
