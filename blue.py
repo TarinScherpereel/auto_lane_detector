@@ -26,9 +26,6 @@ while True:
     cv2.rectangle(frame, (630,470), (0,200), (0,255,0),5)#creates rectangle
 ########################################################################################
 
-    window = cv2.namedWindow('MainWindow',cv2.WND_PROP_FULLSCREEN)
-    cv2.setWindowProperty('MainWindow',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN
-
     cv2.imshow('orignal with rectangle',frame)#showing normal frame
     #cv2.imshow('Gaussian Blur', blur)#blur
     #cv2.imshow('Edges', edges)#edges
