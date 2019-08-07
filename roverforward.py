@@ -47,11 +47,9 @@ def forward():
 
 
 #Stop
-'''def stop():
-    GPIO.output(Motor1, GPIO.LOW)
-    GPIO.output(Motor2, GPIO.LOW)
-    GPIO.output(Motor3, GPIO.LOW)
-    GPIO.output(Motor4, GPIO.LOW)'''
+def stop():
+    GPIO.output(EnableA, GPIO.LOW)
+    GPIO.output(EnableB, GPIO.LOW)
 
 
 
@@ -60,7 +58,7 @@ setup()
 while True:
     print ("forward")
     forward()
-    #time.sleep(2)
-    #print ("stop")
-    #stop()
-    #time.sleep(2)
+    time.sleep(6)
+    print ("stop")
+    stop()
+    time.sleep(20)
