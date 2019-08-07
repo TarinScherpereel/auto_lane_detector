@@ -24,7 +24,6 @@ def setup():
     GPIO.setup(Motor4, GPIO.OUT)
     GPIO.setup(EnableA, GPIO.OUT)
     pwm = GPIO.PWM(EnableA, 50)
-    pwm = GPIO.PWM(EnableB, 50)
     GPIO.setup(EnableB, GPIO.OUT)
 
 
