@@ -60,7 +60,6 @@ setup()
 while True:
     print ("forward")
     forward()
-``
     #time.sleep(2)
     #print ("stop")
     #stop()
