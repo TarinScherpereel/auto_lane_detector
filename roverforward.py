@@ -4,6 +4,11 @@
 import RPi.GPIO as GPIO
 import time
 
+Motor1 = 6
+Motor2 = 13
+Motor3 = 16
+Motor4 = 20
+
 def init():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(6, GPIO.OUT)
