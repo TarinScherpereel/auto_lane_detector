@@ -23,17 +23,17 @@ def setup():
 
 def forward():
 #Moving MotorA Forward
-    GPIO.output(Motor1, GPIO.LOW)
-    GPIO.output(Motor2, GPIO.HIGH)
-    GPIO.output(EnableA, GPIO.HIGH)
+    GPIO.output(Motor1, GPIO.HIGH)
+    GPIO.output(Motor2, GPIO.LOW)
+    GPIO.output(EnableA, GPIO.LOW)
 
     '''GPIO.output(Motor1, GPIO.HIGH)
     GPIO.output(Motor2, GPIO.LOW)
     GPIO.output(EnableA, GPIO.HIGH)'''
 
-    GPIO.output(Motor3, GPIO.LOW)
-    GPIO.output(Motor4, GPIO.HIGH)
-    GPIO.output(EnableB, GPIO.HIGH)
+    GPIO.output(Motor3, GPIO.HIGH)
+    GPIO.output(Motor4, GPIO.LOW)
+    GPIO.output(EnableB, GPIO.LOW)
 
     '''GPIO.output(Motor3, GPIO.HIGH)
     GPIO.output(Motor4, GPIO.LOW)
