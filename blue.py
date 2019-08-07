@@ -26,8 +26,8 @@ while True:
     cv2.rectangle(frame, (630,470), (0,200), (0,255,0),5)#creates rectangle
 ########################################################################################
 
-    cv2.imshow('orignal with rectangle',frame)#showing normal frame
-    #cv2.imshow('Gaussian Blur', blur)#blur
+    #cv2.imshow('orignal with rectangle',frame)#showing normal frame
+    cv2.imshow('Gaussian Blur', blur)#blur
     #cv2.imshow('Edges', edges)#edges
     #cv2.imshow('hsv', hsv)#hsv
     #cv2.imshow('mask', mask)#masking
