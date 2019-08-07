@@ -9,7 +9,7 @@ while True:
     hsv = cv2.cvtColor(blur, cv2.COLOR_BGR2HSV)#HSV shit
 ########################################################################################
     #HSV
-    LowerBlue = np.array ([30,40, 0])
+    LowerBlue = np.array ([30,40,40])
     UpperBlue = np.array([150, 255, 255])
     mask = cv2.inRange(hsv, LowerBlue, UpperBlue)
 ########################################################################################
