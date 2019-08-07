@@ -4,10 +4,10 @@
 import RPi.GPIO as GPIO
 import time
 
-Motor1 = 16
-Motor2 = 20
-Motor3 = 6
-Motor4 = 13
+Motor1 = 6
+Motor2 = 13
+Motor3 = 16
+Motor4 = 20
 #Setup
 def setup():
     GPIO.setmode(GPIO.BCM)#This might be BCM instead of BOARD
