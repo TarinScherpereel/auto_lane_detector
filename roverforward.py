@@ -4,17 +4,46 @@
 import RPi.GPIO as GPIO
 import time
 
-Motor1 = 6
+def init():
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(6, GPIO.OUT)
+    GPIO.setup(13, GPIO.OUT)
+    GPIO.setup(16, GPIO.OUT)
+    GPIO.setup(20, GPIO.OUT)
+    GPIO.output(6, True)
+    GPIO.output(13, True)
+'''Motor1 = 6
 Motor2 = 13
 Motor3 = 16
-Motor4 = 20
+Motor4 = 20'''
 #Setup
-def setup():
+
+def forward(tf):
+    GPIO.output(16, True)
+    GPIO.output(20, False)
+    time.sleep(tf)
+
+def reverse(tf):
+    gpio.output(16, False)
+    gpio.output(20, True)
+    time.sleep(tf)
+
+
+init()
+forward(0.5)
+reverse(0.5)
+
+gpio.cleanup()
+
+
+
+
+'''def setup():
     GPIO.setmode(GPIO.BCM)#This might be BCM instead of BOARD
     GPIO.setup(Motor1, GPIO.OUT)
     GPIO.setup(Motor2, GPIO.OUT)
     GPIO.setup(Motor3, GPIO.OUT)
-    GPIO.setup(Motor4, GPIO.OUT)
+    GPIO.setup(Motor4, GPIO.OUT)''/''
 
 def forward():
 #Moving MotorA Forward
@@ -32,11 +61,11 @@ def forward():
     #GPIO.output(Motor4, GPIO.HIGH)
 
 #Stop
-'''def stop():
+def stop():
     GPIO.output(Motor1, GPIO.LOW)
     GPIO.output(Motor2, GPIO.LOW)
     GPIO.output(Motor3, GPIO.LOW)
-    GPIO.output(Motor4, GPIO.LOW)'''
+    GPIO.output(Motor4, GPIO.LOW)
 
 
 
@@ -45,7 +74,7 @@ setup()
 while True:
     print ("forward")
     forward()
-    '''time.sleep(2)
+    time.sleep(2)
     print ("backward")
     #backward()
     #time.sleep(2)
