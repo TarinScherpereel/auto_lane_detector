@@ -28,13 +28,13 @@ while True:
 
     window = cv2.namedWindow('MainWindow',cv2.WND_PROP_FULLSCREEN)
     cv2.setWindowProperty('MainWindow',cv2.WND_PROP_FULLSCREEN,cv2.WINDOW_FULLSCREEN
-    
+
     cv2.imshow('orignal with rectangle',frame)#showing normal frame
-    '''cv2.imshow('Gaussian Blur', blur)#blur
-    cv2.imshow('Edges', edges)#edges
-    cv2.imshow('hsv', hsv)#hsv
-    cv2.imshow('mask', mask)#masking
-    cv2.imshow('result', res)#views result'''
+    #cv2.imshow('Gaussian Blur', blur)#blur
+    #cv2.imshow('Edges', edges)#edges
+    #cv2.imshow('hsv', hsv)#hsv
+    #cv2.imshow('mask', mask)#masking
+    #cv2.imshow('result', res)#views result
     #How to stop the video
     if cv2.waitKey(1) & 0xFF==ord('q'): #pressing "q" on keyboard will
         break
