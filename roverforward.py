@@ -10,6 +10,11 @@ Motor3 = 6
 Motor4 = 13
 EnableA = 12
 EnableB = 5
+
+dc = 50
+
+
+
 #Setup
 def setup():
     GPIO.setmode(GPIO.BCM)#This might be BCM instead of BOARD
@@ -18,13 +23,18 @@ def setup():
     GPIO.setup(Motor3, GPIO.OUT)
     GPIO.setup(Motor4, GPIO.OUT)
     GPIO.setup(EnableA, GPIO.OUT)
+    pwm = GPIO.PWM(EnableA, 50)
+    pwm = GPIO.PWM(EnableB, 50)
     GPIO.setup(EnableB, GPIO.OUT)
+
+
 
 
 def forward():
 #Moving MotorA Forward
     GPIO.output(Motor1, GPIO.HIGH)
     GPIO.output(Motor2, GPIO.LOW)
+    pwm.start(dc)
     GPIO.output(EnableA, GPIO.HIGH)
 
     '''GPIO.output(Motor1, GPIO.HIGH)
@@ -55,6 +65,7 @@ setup()
 while True:
     print ("forward")
     forward()
+    pwm.start(dc)
     #time.sleep(2)
     #print ("stop")
     #stop()
