@@ -33,7 +33,7 @@ def forward():
 #Moving MotorA Forward
     GPIO.output(Motor1, GPIO.HIGH)
     GPIO.output(Motor2, GPIO.LOW)
-    pwm.start(dc)
+    #pwm.start(dc)
     GPIO.output(EnableA, GPIO.HIGH)
 
     '''GPIO.output(Motor1, GPIO.HIGH)
