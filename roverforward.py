@@ -12,7 +12,7 @@ EnableA = 12
 EnableB = 5
 
 dc = 50
-
+pwm = GPIO.PWM(EnableA, 50)
 
 
 #Setup
