@@ -58,7 +58,7 @@ setup()
 while True:
     print ("forward")
     forward()
-    time.sleep(2)
+    time.sleep(1.5)
     print ("stop")
     stop()
     time.sleep(20)
