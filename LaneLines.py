@@ -1,5 +1,7 @@
 import cv2
 import numpy as np
+import RPi.GPIO as GPIO
+import time
 
 
 cap = cv2.VideoCapture(0)
@@ -34,7 +36,7 @@ def detect_edges(frame):
     upper_blue = np.array([150, 255, 255])
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
     cv2.imshow("MainWindow",mask)
- 
+
     # detect edges
     edges = cv2.Canny(mask, 200, 400)
 
@@ -82,4 +84,3 @@ def detect_line_segments(cropped_edges):
 #the right lane line will be downward sloping and on the right side of the screen
 #we take the average of the slopes and intercepts of the line segements to get the slopes and interceots of the left and right lanes
 #we will use average_slope_intercept
-#make_points will take a lines slope and intercept and return the endpoints of the line segement
